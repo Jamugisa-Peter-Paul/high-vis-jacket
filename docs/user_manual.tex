@@ -1,0 +1,59 @@
+\documentclass[10pt]{article}
+\usepackage[a4paper,margin=0.7in]{geometry}
+\usepackage{ucu_doc}
+\begin{document}
+\doctitle{Safety-Jacket Follower Robot: User Manual}{Jamugisa Peter Paul (S25M25/008) and Ayebare Moses (S25M25/003) \textbar{} 30 October 2026}
+
+\textbf{What it does.} A Hiwonder MasterPi robot finds the person wearing a hi-vis safety jacket, follows at about 1.5\,m, speeds up with them, searches when it loses them and stops when unsure. It runs in Gazebo simulation or on the real robot.
+
+\section{1. What you need}
+\begin{itemize}
+  \item A Windows 11 laptop with an NVIDIA graphics card, and WSL~2 (Windows Subsystem for Linux 2) running Ubuntu 24.04. Without a graphics card, set \texttt{device} to \texttt{cpu} in \texttt{config/detector.yaml}.
+  \item For the real robot: a MasterPi with \textbf{two fully charged 18650 cells} (about 8.2\,V) and 3\,m of clear floor.
+\end{itemize}
+
+\section{2. Install (once)}
+Copy \texttt{6\_Source\_Code/jacket\_follower} to \texttt{D:\textbackslash mscs\textbackslash intelligent\_systems\_and\_robotics\textbackslash jacket\_follower} (the scripts expect this path; to use another, edit \texttt{PROJ} in the scripts). In PowerShell, run \texttt{wsl -d <your Ubuntu name> -u root}, then:
+\begin{verbatim}
+cd /mnt/d/mscs/intelligent_systems_and_robotics/jacket_follower/ros2_setup
+bash install_ros2_jazzy.sh && bash install_ml_and_build.sh
+\end{verbatim}
+This installs ROS~2 (Robot Operating System 2) Jazzy, Gazebo Harmonic and the detector libraries, and builds the package.
+
+\section{3. Run the simulation}
+\begin{verbatim}
+bash open_sim.sh s1_normal      # or s2_speed, or s3_challenge
+bash open_sim.sh s3_challenge acquire_conf:=0.40   # failure case: lock-on rule off
+\end{verbatim}
+The Gazebo window and the camera view open. Watch from the start: people begin walking about 4\,s after loading, and the walk lasts about 1 minute. Press \textbf{Ctrl+C} to stop. Use the mouse only to look around; the move tools push the models. To repeat all measured runs: \texttt{bash run\_final.sh}, then \texttt{py -3 scripts/analyze\_sim.py} in Windows.
+
+\section{4. Run the real robot}
+\begin{enumerate}
+  \item Switch on the battery box, then the expansion board. Wait about 1 minute, then join the robot's Wi-Fi hotspot on the laptop.
+  \item First time only: from \texttt{robot/}, copy \texttt{masterpi\_server.py} and \texttt{start\_server.sh} to \texttt{/home/pi} on the robot. From \texttt{robot/tools/}, copy \texttt{follow\_pose.json}, \texttt{set\_follow\_pose\_slow.py} and \texttt{tilt\_up.py} there too.
+  \item On the robot, run \texttt{bash /home/pi/start\_server.sh}, then set the arm with \texttt{sudo python3 set\_follow\_pose\_slow.py}.
+  \item Test with the wheels off: \texttt{bash open\_real.sh}. A camera window shows the box and the state. Stand 1.5--2\,m away in the vest.
+  \item When the box is steady, put the robot on the floor and run \texttt{bash open\_real.sh motion}.
+\end{enumerate}
+
+\section{5. Safety}
+\begin{itemize}
+  \item Keep people, cables and stairs clear of the robot. Stay within reach, and \textbf{lift the robot to stop it at any time}. Ctrl+C on the laptop also stops it.
+  \item The robot stops itself within 0.5\,s if commands stop, and zeroes its motors at every boot (\texttt{motors\_off\_at\_boot.service}).
+  \item Do not run below 7\,V: the Raspberry Pi can restart mid-run. Charge cells in the Hiwonder charger, not through the Pi's USB-C port.
+\end{itemize}
+
+\section{6. Troubleshooting}
+\begin{tabularx}{\linewidth}{>{\raggedright\arraybackslash}p{5.2cm} X}
+\toprule
+\textbf{Problem} & \textbf{What to do} \\
+\midrule
+``Permission denied'' in WSL & You are not root. Type \texttt{exit}, then reopen with \texttt{wsl -d <name> -u root} \\
+State stays E\_STOP (emergency stop), no picture & Laptop left the robot's Wi-Fi, or the server is not running: reconnect, rerun \texttt{start\_server.sh} \\
+Robot keeps searching with the vest in view & Move closer (under 2.5\,m), add light, check focus; the vest may be too small or dim \\
+Wheels do not move & Battery off or flat: check the battery-box switch and voltage \\
+Vest at the top edge of the picture & Tilt the camera up: \texttt{sudo python3 tilt\_up.py 680} (a lower number tilts higher) \\
+Wi-Fi vanishes during a run & Brown-out: switch off, fit charged cells \\
+\bottomrule
+\end{tabularx}
+\end{document}

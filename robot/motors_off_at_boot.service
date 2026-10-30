@@ -1,0 +1,12 @@
+# Safety: the motor board keeps its last speed if the Pi browns out and reboots mid-motion,
+# so zero all four motors as early as possible on every boot.
+[Unit]
+Description=Zero MasterPi motors at boot (safety)
+After=local-fs.target
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/python3 -c "import sys; sys.path.append('/home/pi/MasterPi'); import HiwonderSDK.Board as B; [B.setMotor(i, 0) for i in range(1, 5)]"
+
+[Install]
+WantedBy=multi-user.target

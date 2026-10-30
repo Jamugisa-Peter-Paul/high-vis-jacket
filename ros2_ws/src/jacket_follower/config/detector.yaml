@@ -1,0 +1,8 @@
+jacket_detector:
+  ros__parameters:
+    conf_threshold: 0.40      # higher than the 0.25 used for mAP: fewer false positives for a robot that moves
+    iou_threshold: 0.50
+    imgsz: 320               # same size the model was fine-tuned at; fast enough for real time
+    device: "cuda:0"         # "cpu" on a machine without a GPU
+    crop_bottom_px: 0        # real MasterPi: 50 (hides the gripper fingertips)
+    publish_debug_image: true

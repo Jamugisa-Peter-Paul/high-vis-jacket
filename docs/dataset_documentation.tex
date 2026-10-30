@@ -1,0 +1,66 @@
+\documentclass[10.5pt]{article}
+\usepackage[a4paper,margin=0.85in]{geometry}
+\usepackage{ucu_doc}
+\setlength{\parskip}{0.45em}
+\begin{document}
+\doctitle{Dataset Documentation}{Safety-Jacket Follower Robot \textbar{} Jamugisa Peter Paul and Ayebare Moses \textbar{} 30 October 2026}
+
+The full dataset is about 890\,MB (about 38,000 image and label files), so it is documented here and not included in the submission. The training configuration is in \texttt{6\_Source\_Code/training\_config}.
+
+\section{1. Target class and format}
+One class: \textbf{\texttt{0: safety\_jacket}}, a hi-vis vest with reflective bands, worn or hanging. Labels are YOLO (You Only Look Once) text files with one line per box: class, x-centre, y-centre, width and height, each scaled to 0--1. An image with no vest has an empty label file, which makes it a negative example.
+
+\section{2. Training and validation sets (version 2, used by the final model)}
+\begin{tabularx}{\linewidth}{>{\raggedright\arraybackslash}X r >{\raggedright\arraybackslash}p{7.2cm}}
+\toprule
+\textbf{Source} & \textbf{Images} & \textbf{Labels and notes} \\
+\midrule
+Robot-camera frames, session 1 (328 frames, used twice) & 656 & Grounding DINO plus colour filter plus human check; repeated to up-weight the deployment view \\
+Original phone photos of one jacket & 284 & Original annotations \\
+Public vest photos & 1,500 & Human labels from the public datasets below \\
+Public photos of people without vests & 700 & Empty labels (negatives) \\
+\midrule
+\textbf{Total training images} & \textbf{3,140} & \\
+\textbf{Validation images} & \textbf{115} & HB1204 validation split (public, human-labelled) \\
+\bottomrule
+\end{tabularx}
+
+\section{3. Independent test sets (never used for training or model selection)}
+\begin{tabularx}{\linewidth}{>{\raggedright\arraybackslash}X r >{\raggedright\arraybackslash}p{7.2cm}}
+\toprule
+\textbf{Test set} & \textbf{Images} & \textbf{Contents and labels} \\
+\midrule
+Robot camera, held-out time block (session 1, frames 230--330) & 99 & 94 with a jacket, 5 without; Grounding DINO plus human check, independent of all YOLO models \\
+Public set A (HB1204 test split) & 242 & 186 with vests, 56 people without; human labels \\
+Public set B (Vincent test and validation splits) & 208 & 112 with vests, 96 people without; human labels, some vests unlabelled \\
+\bottomrule
+\end{tabularx}
+
+\section{4. Sources and licences}
+\begin{itemize}
+  \item \textbf{Our own data:} frames recorded on the Hiwonder MasterPi arm camera in the lab, plus our earlier phone photos. People in the frames are project members.
+  \item \textbf{HB1204/PPE\_Detection}, Hugging Face, CC~BY~4.0 (Creative Commons Attribution 4.0): \url{https://huggingface.co/datasets/HB1204/PPE_Detection}. Original classes used: Safety Vest (10), NO-Safety Vest (7).
+  \item \textbf{VincentGOURBIN/ppe-detection}, Hugging Face, CC~BY~4.0: \url{https://huggingface.co/datasets/VincentGOURBIN/ppe-detection}. Original classes used: vest (4), no-vest (2).
+\end{itemize}
+
+\section{5. How the robot frames were labelled}
+\begin{enumerate}
+  \item Session 1 gave 506 frames; 57 corrupt frames were removed, leaving 449 usable frames.
+  \item Grounding DINO (\texttt{IDEA-Research/grounding-dino-base}) proposed boxes from a text prompt.
+  \item A hi-vis filter in HSV (Hue, Saturation, Value) kept boxes with at least 8\% of pixels in the range (30, 45, 80) to (70, 255, 255). When boxes were nested, the inner box was kept.
+  \item Results were checked by eye using contact sheets; two ambiguous test frames (00244, 00250) were removed.
+\end{enumerate}
+
+\section{6. Splits and leakage control}
+Neighbouring video frames are nearly identical, so a random split would leak near-copies into the test set. We used \textbf{time-block splits}: the robot test frames are a continuous block not used in training. An early evaluation used labels produced by the original model, which is circular, so we replaced it with these independent test sets.
+
+\section{7. Known limitations}
+\begin{itemize}
+  \item Robot frames come from one room, one person and one day, so a test in a new location is still needed.
+  \item The robot test set has only 5 frames without a jacket, so its false-alarm figure is weak evidence.
+  \item Public set B has some unlabelled vests, which can lower its measured precision.
+\end{itemize}
+
+\section{8. Reproducing the dataset}
+\texttt{scripts/dino\_label.py} labels frames, \texttt{scripts/get\_public\_test.py} downloads the public data, \texttt{scripts/prepare\_dataset\_v2.py} builds the training set, and \texttt{scripts/train\_v2.py} trains the model. \texttt{scripts/evaluate\_all.py} produces the results in \texttt{RESULTS.md}.
+\end{document}

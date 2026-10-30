@@ -1,0 +1,27 @@
+jacket_follower:
+  ros__parameters:
+    jacket_width_m: 0.45       # vest width seen from behind -> distance estimate d = fx * 0.45 / box_width_px
+    jacket_height_m: 0.57      # vest height -> second estimate fx * 0.57 / box_height_px; the smaller one is used
+    hfov_rad: 1.55             # only used when camera_info has no focal length (real robot)
+    target_dist: 1.5           # m: following gap to keep
+    stop_dist: 0.8             # m: closer than this -> no forward motion
+    k_dist: 0.8                # m/s per m of distance error
+    k_rate: 0.6                # m/s per (m/s) of distance change: speeds up when the person speeds up
+    k_turn: 1.6                # rad/s per unit horizontal offset (-1..1)
+    max_lin: 0.35              # m/s cap
+    max_ang: 1.2
+    max_lin_acc: 0.6           # m/s^2 ramp; braking is twice as fast
+    confirm_frames: 3          # consecutive detections before moving
+    min_conf: 0.40             # keep tracking a target already followed down to this score
+    acquire_conf: 0.70         # a new target must score this high (orange shirts score ~0.55)
+    gate: 0.5                  # re-acquire the followed target at min_conf only within this bearing offset (-1..1)
+    lost_timeout: 1.5          # s: HOLD after losing the jacket
+    search_after: 3.0          # s: then SEARCH (rotate in place)
+    search_ang: 0.5
+    search_turn: 0.4           # stop-and-look search (only when search_pause > 0): turn this long ...
+    search_pause: 0.0          # ... then stand still this long. 0 = continuous turn (sim); real robot uses 0.8
+    watchdog: 1.0              # s without detector output -> E_STOP
+    min_range: 0.25            # m: sonar safety stop
+    rate_hz: 20.0
+    enable_search: true
+    sonar_cone: 0.2            # target this close to image centre -> sonar range also used as a distance estimate

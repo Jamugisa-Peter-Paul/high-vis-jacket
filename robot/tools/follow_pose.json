@@ -1,0 +1,11 @@
+{
+  "description": "MasterPi arm pose for person following (camera looks forward, slightly up). Found by automatic image-matching calibration.",
+  "servo_pulses": {"3": 751, "4": 2484, "5": 704, "6": 1500},
+  "pixels_per_pulse": {
+    "pan_servo6_dx": -0.705,
+    "tilt_servo5_dy": 0.601,
+    "tilt_servo4_dy": 0.431,
+    "wrist_servo3": 0.0
+  },
+  "crop_bottom_rows_from": 430
+}

@@ -1,0 +1,9 @@
+# Linux scripts must keep Unix line endings to run in WSL and on the robot
+*.sh text eol=lf
+*.py text eol=lf
+*.yaml text eol=lf
+*.sdf text eol=lf
+*.pt binary
+*.mp4 binary
+*.pptx binary
+*.pdf binary

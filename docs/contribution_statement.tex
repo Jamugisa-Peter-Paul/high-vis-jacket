@@ -1,0 +1,38 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage{ucu_doc}
+\setlength{\parskip}{0.6em}
+\begin{document}
+\doctitle{Individual Contribution Statement}{Safety-Jacket Follower Robot \textbar{} Intelligent Systems and Robotics, Final Project \textbar{} 30 October 2026}
+
+This project was completed in a pair. The table states what each member was responsible for.
+
+\renewcommand{\arraystretch}{1.3}
+\begin{tabularx}{\linewidth}{>{\raggedright\arraybackslash}p{4.2cm} X}
+\toprule
+\textbf{Member} & \textbf{Responsibilities} \\
+\midrule
+\textbf{Jamugisa Peter Paul} \newline S25M25/008 &
+\textbf{Detector:} recording robot-camera data, automatic labelling with Grounding DINO and checking the labels, building the training dataset, fine-tuning YOLOv8n (You Only Look Once version 8, nano size) in versions 1 and 2, and independent evaluation on three test sets.
+
+\textbf{Physical deployment:} the robot server, the ROS~2 (Robot Operating System 2) bridge to the robot, camera and motor calibration, safety fixes (motor power cap, boot-time motor stop) and the live robot tests. \\
+\midrule
+\textbf{Ayebare Moses} \newline S25M25/003 &
+\textbf{ROS 2 (Robot Operating System 2):} the \texttt{jacket\_follower} package with the detector, follower, bridge, scenario and metrics nodes, launch files and parameters.
+
+\textbf{Gazebo:} the MasterPi robot model, the hall world, the people models, the three scenarios (normal, speed changes, challenging), the failure-case ablation, ground-truth metrics and the simulation evaluation. \\
+\midrule
+\textbf{Shared} & The final report, the presentation slides and the user manual. \\
+\bottomrule
+\end{tabularx}
+
+\vspace{1em}
+We confirm that this statement is accurate.
+
+\vspace{2.2em}
+\begin{tabular}{@{}p{7.2cm}p{7.2cm}@{}}
+\rule{6.2cm}{0.4pt} & \rule{6.2cm}{0.4pt} \\
+Jamugisa Peter Paul & Ayebare Moses \\
+Date: \rule{3cm}{0.4pt} & Date: \rule{3cm}{0.4pt} \\
+\end{tabular}
+\end{document}

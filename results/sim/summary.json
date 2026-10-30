@@ -1,0 +1,112 @@
+[
+ {
+  "run": "s1_normal",
+  "duration_s": 103.9,
+  "state_share_%": {
+   "FOLLOW": 95.9,
+   "HOLD": 2.1,
+   "CONFIRMING": 1.0,
+   "SEARCH": 1.1
+  },
+  "following_ratio_%": 95.9,
+  "wrong_target_s": 0.0,
+  "gap_walking_mean_m": 2.07,
+  "gap_walking_std_m": 0.28,
+  "min_distance_m": 1.17,
+  "final_distance_m": 1.75,
+  "final_state": "FOLLOW",
+  "ends_on_worker": true,
+  "speed_match": {
+   "0.30": 0.194
+  },
+  "losses": 1,
+  "longest_loss_s": 4.2,
+  "recovered_all": true,
+  "est_bias_m": 0.29,
+  "est_std_m": 0.1,
+  "inference_ms_mean": 17.1
+ },
+ {
+  "run": "s2_speed",
+  "duration_s": 101.0,
+  "state_share_%": {
+   "FOLLOW": 100.0
+  },
+  "following_ratio_%": 100.0,
+  "wrong_target_s": 0.0,
+  "gap_walking_mean_m": 2.27,
+  "gap_walking_std_m": 0.42,
+  "min_distance_m": 1.82,
+  "final_distance_m": 1.82,
+  "final_state": "FOLLOW",
+  "ends_on_worker": true,
+  "speed_match": {
+   "0.15": 0.128,
+   "0.20": 0.071,
+   "0.35": 0.32,
+   "0.60": 0.35
+  },
+  "losses": 0,
+  "longest_loss_s": 0.0,
+  "recovered_all": true,
+  "est_bias_m": 0.36,
+  "est_std_m": 0.07,
+  "inference_ms_mean": 16.8
+ },
+ {
+  "run": "s3_challenge",
+  "duration_s": 93.8,
+  "state_share_%": {
+   "FOLLOW": 69.9,
+   "HOLD": 3.8,
+   "CONFIRMING": 0.4,
+   "SEARCH": 25.9
+  },
+  "following_ratio_%": 69.9,
+  "wrong_target_s": 0.0,
+  "gap_walking_mean_m": 2.26,
+  "gap_walking_std_m": 0.12,
+  "min_distance_m": 1.93,
+  "final_distance_m": 1.93,
+  "final_state": "FOLLOW",
+  "ends_on_worker": true,
+  "speed_match": {
+   "0.30": 0.263,
+   "0.80": 0.245
+  },
+  "losses": 2,
+  "longest_loss_s": 27.0,
+  "recovered_all": true,
+  "est_bias_m": 0.45,
+  "est_std_m": 0.1,
+  "inference_ms_mean": 16.7
+ },
+ {
+  "run": "s3_challenge_no_hysteresis",
+  "duration_s": 92.0,
+  "state_share_%": {
+   "FOLLOW": 38.7,
+   "HOLD": 31.5,
+   "CONFIRMING": 8.9,
+   "SEARCH": 21.0
+  },
+  "following_ratio_%": 38.7,
+  "wrong_target_s": 11.2,
+  "gap_walking_mean_m": 2.26,
+  "gap_walking_std_m": 0.12,
+  "min_distance_m": 1.95,
+  "final_distance_m": 3.69,
+  "final_state": "FOLLOW",
+  "ends_on_worker": false,
+  "speed_match": {
+   "0.30": 0.263,
+   "0.80": 0.247
+  },
+  "losses": 26,
+  "longest_loss_s": 11.3,
+  "recovered_all": true,
+  "est_bias_m": 0.52,
+  "est_std_m": 0.47,
+  "inference_ms_mean": 16.4
+ }
+]

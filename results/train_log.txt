@@ -1,0 +1,116 @@
+﻿Ultralytics 8.4.178  Python-3.13.3 torch-2.11.0+cu128 CUDA:0 (NVIDIA GeForce RTX 4050 Laptop GPU, 6140MiB)
+Model summary (fused): 73 layers, 3,006,038 parameters, 0 gradients, 8.1 GFLOPs
+
+[KDownloading https://ultralytics.com/assets/Arial.ttf to 'C:\Users\User\AppData\Roaming\Ultralytics\Arial.ttf': 5% ╸─────────── 40.0/755.1KB 48.7KB/s 0.2s<14.7s
+[KDownloading https://ultralytics.com/assets/Arial.ttf to 'C:\Users\User\AppData\Roaming\Ultralytics\Arial.ttf': 18% ━━────────── 136.0/755.1KB 313.9KB/s 0.3s<2.0s
+[KDownloading https://ultralytics.com/assets/Arial.ttf to 'C:\Users\User\AppData\Roaming\Ultralytics\Arial.ttf': 28% ━━━───────── 216.0/755.1KB 374.0KB/s 0.5s<1.4s
+[KDownloading https://ultralytics.com/assets/Arial.ttf to 'C:\Users\User\AppData\Roaming\Ultralytics\Arial.ttf': 39% ━━━━╸─────── 296.0/755.1KB 450.4KB/s 0.6s<1.0s
+[KDownloading https://ultralytics.com/assets/Arial.ttf to 'C:\Users\User\AppData\Roaming\Ultralytics\Arial.ttf': 49% ━━━━━╸────── 376.0/755.1KB 531.7KB/s 0.7s<0.7s
+[KDownloading https://ultralytics.com/assets/Arial.ttf to 'C:\Users\User\AppData\Roaming\Ultralytics\Arial.ttf': 60% ━━━━━━━───── 456.0/755.1KB 585.6KB/s 0.9s<0.5s
+[KDownloading https://ultralytics.com/assets/Arial.ttf to 'C:\Users\User\AppData\Roaming\Ultralytics\Arial.ttf': 70% ━━━━━━━━╸─── 536.0/755.1KB 632.2KB/s 1.0s<0.3s
+[KDownloading https://ultralytics.com/assets/Arial.ttf to 'C:\Users\User\AppData\Roaming\Ultralytics\Arial.ttf': 75% ━━━━━━━━━─── 568.0/755.1KB 536.5KB/s 1.1s<0.3s
+[KDownloading https://ultralytics.com/assets/Arial.ttf to 'C:\Users\User\AppData\Roaming\Ultralytics\Arial.ttf': 86% ━━━━━━━━━━── 656.0/755.1KB 630.1KB/s 1.2s<0.2s
+[KDownloading https://ultralytics.com/assets/Arial.ttf to 'C:\Users\User\AppData\Roaming\Ultralytics\Arial.ttf': 95% ━━━━━━━━━━━─ 720.0/755.1KB 605.9KB/s 1.3s<0.1s
+[KDownloading https://ultralytics.com/assets/Arial.ttf to 'C:\Users\User\AppData\Roaming\Ultralytics\Arial.ttf': 100% ━━━━━━━━━━━━ 755.1KB 566.3KB/s 1.3s
+WARNING [34m[1mval: [0mSlow image access detected (ping: 0.0±0.0 ms, read: 11.0±2.3 MB/s, size: 87.9 KB). Use local storage instead of remote/mounted storage for better performance. See https://docs.ultralytics.com/guides/model-training-tips
+
+[K[34m[1mval: [0mScanning D:\mscs\intelligent_systems_and_robotics\jacket_follower\data\finetune\val\labels... 13 images, 0 backgrounds, 0 corrupt: 13% ━╸────────── 13/99 30.3it/s 0.1s<2.8s
+[K[34m[1mval: [0mScanning D:\mscs\intelligent_systems_and_robotics\jacket_follower\data\finetune\val\labels... 68 images, 0 backgrounds, 0 corrupt: 68% ━━━━━━━━──── 68/99 170.3it/s 0.2s<0.2s
+[K[34m[1mval: [0mScanning D:\mscs\intelligent_systems_and_robotics\jacket_follower\data\finetune\val\labels... 99 images, 0 backgrounds, 0 corrupt: 100% ━━━━━━━━━━━━ 99/99 337.0it/s 0.3s
+[34m[1mval: [0mNew cache created: D:\mscs\intelligent_systems_and_robotics\jacket_follower\data\finetune\val\labels.cache
+Ultralytics 8.4.178  Python-3.13.3 torch-2.11.0+cu128 CUDA:0 (NVIDIA GeForce RTX 4050 Laptop GPU, 6140MiB)
+Model summary (fused): 73 layers, 3,006,038 parameters, 0 gradients, 8.1 GFLOPs
+[34m[1mval: [0mFast image access  (ping: 0.0±0.0 ms, read: 72.7±10.5 MB/s, size: 88.2 KB)
+
+[K[34m[1mval: [0mScanning D:\mscs\intelligent_systems_and_robotics\jacket_follower\data\finetune\val\labels.cache... 99 images, 0 backgrounds, 0 corrupt: 100% ━━━━━━━━━━━━ 99/99 10.1Mit/s 0.0s
+
+[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 0% ──────────── 0/7  0.0s
+python.exe : Traceback (most recent call last):
+At line:1 char:375
++ ... _follower"; & "D:\mscs\intelligent_systems_and_robotics\birds-cnn\dl- ...
++                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (Traceback (most recent call last)::String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+  File "<string>", line 1, in <module>
+    from multiprocessing.spawn import spawn_main; spawn_main(parent_pid=6600, pipe_handle=2244)
+                                                  ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\multiprocessing\spawn.py", line 122, in spawn_main
+    exitcode = _main(fd, parent_sentinel)
+  File "C:\Python313\Lib\multiprocessing\spawn.py", line 131, in _main
+    prepare(preparation_data)
+    ~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\multiprocessing\spawn.py", line 246, in prepare
+    _fixup_main_from_path(data['init_main_from_path'])
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\multiprocessing\spawn.py", line 297, in _fixup_main_from_path
+    main_content = runpy.run_path(main_path,
+                                  run_name="__mp_main__")
+  File "<frozen runpy>", line 287, in run_path
+  File "<frozen runpy>", line 98, in _run_module_code
+  File "<frozen runpy>", line 88, in _run_code
+  File "D:\mscs\intelligent_systems_and_robotics\jacket_follower\scripts\train_finetune.py", line 19, in <module>
+    before = YOLO(str(ORIG)).val(data=str(DATA), imgsz=320, single_cls=True, batch=16, plots=False,
+                                 project=str(RES / "runs"), name="val_original", exist_ok=True, verbose=False)
+  File "D:\mscs\intelligent_systems_and_robotics\birds-cnn\dl-birds\Lib\site-packages\ultralytics\engine\model.py", 
+line 645, in val
+    validator(model=self.model)
+    ~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "D:\mscs\intelligent_systems_and_robotics\birds-cnn\dl-birds\Lib\site-packages\torch\utils\_contextlib.py", 
+line 124, in decorate_context
+    return func(*args, **kwargs)
+  File 
+"D:\mscs\intelligent_systems_and_robotics\birds-cnn\dl-birds\Lib\site-packages\ultralytics\engine\validator.py", line 
+252, in __call__
+    for batch_i, batch in enumerate(bar):
+                          ~~~~~~~~~^^^^^
+  File "D:\mscs\intelligent_systems_and_robotics\birds-cnn\dl-birds\Lib\site-packages\ultralytics\utils\tqdm.py", line 
+379, in __iter__
+    for item in self.iterable:
+                ^^^^^^^^^^^^^
+  File "D:\mscs\intelligent_systems_and_robotics\birds-cnn\dl-birds\Lib\site-packages\ultralytics\data\build.py", line 
+85, in __iter__
+    self.iterator = self._get_iterator()
+                    ~~~~~~~~~~~~~~~~~~^^
+  File "D:\mscs\intelligent_systems_and_robotics\birds-cnn\dl-birds\Lib\site-packages\torch\utils\data\dataloader.py", 
+line 433, in _get_iterator
+    return _MultiProcessingDataLoaderIter(self)
+  File "D:\mscs\intelligent_systems_and_robotics\birds-cnn\dl-birds\Lib\site-packages\torch\utils\data\dataloader.py", 
+line 1192, in __init__
+    w.start()
+    ~~~~~~~^^
+  File "C:\Python313\Lib\multiprocessing\process.py", line 121, in start
+    self._popen = self._Popen(self)
+                  ~~~~~~~~~~~^^^^^^
+  File "C:\Python313\Lib\multiprocessing\context.py", line 224, in _Popen
+    return _default_context.get_context().Process._Popen(process_obj)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Python313\Lib\multiprocessing\context.py", line 337, in _Popen
+    return Popen(process_obj)
+  File "C:\Python313\Lib\multiprocessing\popen_spawn_win32.py", line 47, in __init__
+    prep_data = spawn.get_preparation_data(process_obj._name)
+  File "C:\Python313\Lib\multiprocessing\spawn.py", line 164, in get_preparation_data
+    _check_not_importing_main()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Python313\Lib\multiprocessing\spawn.py", line 140, in _check_not_importing_main
+    raise RuntimeError('''
+    ...<16 lines>...
+    ''')
+RuntimeError: 
+        An attempt has been made to start a new process before the
+        current process has finished its bootstrapping phase.
+
+        This probably means that you are not using fork to start your
+        child processes and you have forgotten to use the proper idiom
+        in the main module:
+
+            if __name__ == '__main__':
+                freeze_support()
+                ...
+
+        The "freeze_support()" line can be omitted if the program
+        is not going to be frozen to produce an executable.
+
+        To fix this issue, refer to the "Safe importing of main module"
+        section in https://docs.python.org/3/library/multiprocessing.html
+        

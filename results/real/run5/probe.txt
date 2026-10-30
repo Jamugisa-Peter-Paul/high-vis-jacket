@@ -1,0 +1,9 @@
+camera         1.5 Hz   longest gap 2.03 s
+detections     1.4 Hz   longest gap 2.03 s
+frame_age_ms     median   23.91   min   13.29   max   34.51   (n=513)
+cmd_rtt_ms       median   19.50   min    8.72   max   27.43   (n=651)
+sonar_m          median    0.65   min    0.31   max    5.00   (n=651)
+est_distance_m   median    1.92   min    1.57   max    2.42   (n=174)
+inference_ms     median   14.63   min    5.91   max 2558.74   (n=168)
+follower states: {'E_STOP': 1185, 'SEARCH': 954, 'CONFIRMING': 26, 'FOLLOW': 174, 'HOLD': 61}
+detections: 47 scores median 0.70

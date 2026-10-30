@@ -1,0 +1,30 @@
+% Shared style for the short project documents (user manual, contribution statement, dataset documentation).
+\ProvidesPackage{ucu_doc}
+\RequirePackage[T1]{fontenc}
+\RequirePackage{lmodern}
+\RequirePackage{xcolor}
+\RequirePackage{titlesec}
+\RequirePackage{booktabs}
+\RequirePackage{array}
+\RequirePackage{tabularx}
+\RequirePackage{enumitem}
+\RequirePackage{fancyhdr}
+\RequirePackage{hyperref}
+\RequirePackage{parskip}
+\RequirePackage{graphicx}
+\definecolor{ucunavy}{RGB}{0,32,91}
+\titleformat{\section}{\normalfont\normalsize\bfseries\color{ucunavy}}{}{0em}{}
+\titlespacing*{\section}{0pt}{0.8ex}{0.2ex}
+\hypersetup{colorlinks=true, linkcolor=ucunavy, urlcolor=ucunavy}
+\pagestyle{fancy}
+\setlength{\headheight}{14pt}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0.6pt}
+\renewcommand{\headrule}{\hbox to\headwidth{\color{ucunavy}\leaders\hrule height \headrulewidth\hfill}}
+\fancyhead[L]{\small\color{ucunavy}Uganda Christian University}
+\fancyhead[R]{\small\color{ucunavy}Intelligent Systems and Robotics -- Final Project}
+\setlist[itemize]{leftmargin=1.2em, itemsep=0.02em, topsep=0.05em}
+\setlist[enumerate]{leftmargin=1.4em, itemsep=0.02em, topsep=0.05em}
+\setlength{\parskip}{0.3em}
+\sloppy
+\newcommand{\doctitle}[2]{{\Large\bfseries\color{ucunavy}#1}\\[0.1em]{\small #2}\par\vspace{0.3em}}
